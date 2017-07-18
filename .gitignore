@@ -1,0 +1,12 @@
+.vscode/
+npm-debug.log
+
+app/**/*.map
+hooks/
+lib/
+node_modules/
+
+platforms/
+
+tmp/
+typings/
