@@ -1,6 +1,6 @@
 .vscode/
 npm-debug.log
-
+app/tns_modules/
 app/**/*.map
 hooks/
 lib/
