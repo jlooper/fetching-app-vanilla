@@ -6,16 +6,17 @@ function PetListViewModel(items) {
     var viewModel = new ObservableArray(items);
 
     viewModel.load = function() {
-        return fetch(config.apiUrl + 'breed.list?&key='+ config.apiKey + '&animal=dog' + '&format=json')
+        return fetch(config.apiUrl + 'pet.getRandom?&key='+ config.apiKey + '&animal=dog' + '&output=full' + '&format=json')
         .then(handleErrors)
         .then(function(response) {
             return response.json();
         }).then(function(data) {
-            data.petfinder.breeds.breed.forEach(function(data) {
-                console.log(JSON.stringify(data))
-                viewModel.push({
-                    name: data.$t
-                });
+            console.log(JSON.stringify(data));
+            viewModel.push({
+                name: data.petfinder.pet.name.$t,
+                size: data.petfinder.pet.size.$t,
+                age: data.petfinder.pet.age.$t,
+                sex: data.petfinder.pet.sex.$t
             });
         });
     };
