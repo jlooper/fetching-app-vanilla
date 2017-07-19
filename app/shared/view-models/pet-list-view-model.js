@@ -1,13 +1,12 @@
 var config = require("../../shared/config");
 var fetchModule = require("fetch");
 var ObservableArray = require("data/observable-array").ObservableArray;
-var api_key = '3b3fe2619dfd3c4e94c2d7efd24592e1';
 
 function PetListViewModel(items) {
     var viewModel = new ObservableArray(items);
 
     viewModel.load = function() {
-        return fetch(config.apiUrl + '&key='+ api_key + '&animal=dog' + '&format=json')
+        return fetch(config.apiUrl + 'breed.list?&key='+ config.apiKey + '&animal=dog' + '&format=json')
         .then(handleErrors)
         .then(function(response) {
             return response.json();
