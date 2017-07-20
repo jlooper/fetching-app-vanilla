@@ -2,7 +2,7 @@ var config = require("../../shared/config");
 var fetchModule = require("fetch");
 var ObservableArray = require("data/observable-array").ObservableArray;
 
-function PetListViewModel(items) {
+function PetViewModel(items) {
     var viewModel = new ObservableArray(items);
 
     viewModel.load = function() {
@@ -38,4 +38,4 @@ function handleErrors(response) {
     return response;
 }
 
-module.exports = PetListViewModel;
+module.exports = PetViewModel;
