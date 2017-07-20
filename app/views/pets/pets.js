@@ -1,4 +1,4 @@
-var PetListViewModel = require("../../shared/view-models/pet-list-view-model");
+var PetListViewModel = require("../../shared/view-models/pet-view-model");
 var observableModule = require("data/observable")
 var ObservableArray = require("data/observable-array").ObservableArray;
 var page;

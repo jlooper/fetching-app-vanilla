@@ -1,8 +1,10 @@
 <Page loaded="loaded">
+    <ActionBar title="Fetching">
+    </ActionBar>
     <GridLayout>
         <ListView items="{{ petList }}">
             <ListView.itemTemplate>
-                <Label text="{{ name }}" horizontalAlignment="left" verticalAlignment="center"/>
+                <Label text="{{ name }}"/>
             </ListView.itemTemplate>
         </ListView>
     </GridLayout>
