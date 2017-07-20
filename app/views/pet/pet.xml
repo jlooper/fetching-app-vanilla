@@ -1,11 +1,16 @@
 <Page loaded="loaded">
     <ActionBar title="Fetching">
     </ActionBar>
-    <GridLayout>
-        <ListView items="{{ petList }}">
+    <StackLayout>
+        <ListView items="{{ petList }}" height="100%">
             <ListView.itemTemplate>
-                <Label text="{{ name }}"/>
+                <StackLayout>
+                    <Image src="{{ photo }}" width="auto" height="200"/>
+                    <Label text="{{ 'Name: ' + name }}" textWrap="true"/>
+                    <Label text="{{ 'Breed: ' + breed }}" textWrap="true"/>
+                    <Label text="{{ 'Age: ' + age }}" textWrap="true"/>
+                </StackLayout>
             </ListView.itemTemplate>
         </ListView>
-    </GridLayout>
+    </StackLayout>
 </Page>

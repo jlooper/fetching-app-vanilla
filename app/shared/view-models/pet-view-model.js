@@ -14,9 +14,11 @@ function PetViewModel(items) {
             console.log(JSON.stringify(data));
             viewModel.push({
                 name: data.petfinder.pet.name.$t,
-                size: data.petfinder.pet.size.$t,
+                size: data.petfinder.pet.size.$t, 
                 age: data.petfinder.pet.age.$t,
-                sex: data.petfinder.pet.sex.$t
+                sex: data.petfinder.pet.sex.$t,
+                photo: data.petfinder.pet.media.photos.photo[3].$t,
+                breed: data.petfinder.pet.breeds.breed.$t,
             });
         });
     };
