@@ -3,15 +3,17 @@ var observableModule = require("data/observable")
 var ObservableArray = require("data/observable-array").ObservableArray;
 var page;
 
-var petList = new PetViewModel([]);
-var pageData = new observableModule.fromObject({
-    petList: petList
-});
+var pet = new PetViewModel();
+
 
 exports.loaded = function(args) {
     page = args.object;
-    page.bindingContext = pageData;
+    pet.load()
+    .catch(function(error){
+        console.log(error);
+        return Promise.reject();
+    }).then(function(){
+        page.bindingContext = pet;
+    });
 
-    petList.empty();
-    petList.load();
 };
