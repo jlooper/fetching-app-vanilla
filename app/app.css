@@ -1,7 +1,7 @@
 @import url('~/platform.css');
 
 Page {
-    background-color: #fafafa;
+    background-color: #7f9efc;
     font-size: 17;
 }
 TextField {
@@ -21,4 +21,8 @@ Button {
 ActionBar {
     color: white;
     background-color: #9b64f8;
+}
+.cardStyle {
+    background-color: #fafafa;
+    color: #000;
 }

@@ -1,35 +1,9 @@
 var config = require("../../shared/config");
 var fetchModule = require("fetch");
 var Observable = require("data/observable").Observable;
+
 function PetViewModel() {
-    /*
-    var viewModel = new ObservableArray(items);
-
-    viewModel.load = function() {
-        return fetch(config.apiUrl + 'pet.getRandom?&key='+ config.apiKey + '&animal=dog' + '&output=full' + '&format=json')
-        .then(handleErrors)
-        .then(function(response) {
-            return response.json();
-        }).then(function(data) {
-            console.log(JSON.stringify(data));
-            viewModel.push({
-                name: data.petfinder.pet.name.$t,
-                size: data.petfinder.pet.size.$t, 
-                age: data.petfinder.pet.age.$t,
-                sex: data.petfinder.pet.sex.$t,
-                photo: data.petfinder.pet.media.photos.photo[3].$t,
-                breed: data.petfinder.pet.breeds.breed.$t,
-            });
-        });
-    };
-
-    viewModel.empty = function() {
-        while (viewModel.length) {
-            viewModel.pop();
-        }
-    };
-*/
-    viewModel = new Observable();
+    var viewModel = new Observable();
 
     viewModel.load = function() {
         return fetch(config.apiUrl + 'pet.getRandom?&key='+ config.apiKey + '&animal=dog' + '&output=full' + '&format=json')
@@ -44,6 +18,7 @@ function PetViewModel() {
             viewModel.sex = data.petfinder.pet.sex.$t;
             viewModel.photo = data.petfinder.pet.media.photos.photo[3].$t;
             viewModel.breed = data.petfinder.pet.breeds.breed.$t;
+            viewModel.description = data.petfinder.pet.description.$t;
         });
     };
 
@@ -54,6 +29,7 @@ function PetViewModel() {
         viewModel.sex = "";
         viewModel.photo = "";
         viewModel.breed = "";
+        viewModel.description = "";
     }
     return viewModel;
 }
