@@ -1,5 +1,6 @@
 var PetViewModel = require("../../shared/view-models/pet-view-model");
 var observableModule = require("data/observable")
+var frameModule = require("ui/frame");
 var ObservableArray = require("data/observable-array").ObservableArray;
 var page;
 
@@ -15,5 +16,9 @@ exports.loaded = function(args) {
     }).then(function(){
         page.bindingContext = pet;
     });
+};
 
+exports.match = function() {
+    var topmost = frameModule.topmost();
+    topmost.navigate("views/match/match");
 };

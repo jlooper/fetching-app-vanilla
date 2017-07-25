@@ -1,5 +1,5 @@
 <Page loaded="loaded" xmlns:Card="nativescript-cardview">
-    <ActionBar title="name">
+    <ActionBar title="Fetching">
         <StackLayout orientation="horizontal"
             ios:horizontalAlignment="center"
             android:horizontalAlignment="left">
@@ -14,5 +14,6 @@
                 <label text="{{ 'Age: ' + age }}"  class="info" textWrap="true" row="2" colSpan="3" class="quicksand"/>   
            </grid-layout>
        </Card:CardView>
+       <Button text="Fetch Matches" tap="match" />
    </StackLayout>
 </Page>

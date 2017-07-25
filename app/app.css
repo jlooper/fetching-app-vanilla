@@ -17,6 +17,8 @@ Image {
 Button {
     margin: 10;
     padding: 10;
+    background-color: #f07da8;
+    color: white;
 }
 ActionBar {
     color: white;
