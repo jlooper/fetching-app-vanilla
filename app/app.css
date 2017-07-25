@@ -4,9 +4,9 @@ Page {
     background-color: #7f9efc;
     font-size: 17;
 }
-TextField {
-    margin: 10;
-    padding: 10;
+Label {
+    margin: 5;
+    padding: 5;
 }
 Image {
     margin-top: 20;
@@ -25,4 +25,12 @@ ActionBar {
 .cardStyle {
     background-color: #fafafa;
     color: #000;
+}
+.quicksand {
+    font-family: "Quicksand-Regular";
+    font-size: 20;
+}
+.quicksandBold {
+    font-family: "Quicksand-Bold";
+    font-size: 25;
 }

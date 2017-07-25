@@ -1,12 +1,17 @@
 <Page loaded="loaded" xmlns:Card="nativescript-cardview">
-    <ActionBar title="{{ name }}">
-    </ActionBar>
+    <ActionBar title="name">
+        <StackLayout orientation="horizontal"
+            ios:horizontalAlignment="center"
+            android:horizontalAlignment="left">
+            <Label text="{{ name }}" class="quicksandBold"></Label>
+        </StackLayout>
+    </ActionBar> 
     <StackLayout>     
       <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
            <grid-layout rows="200, auto, auto" columns="auto, auto, *">
                 <image src="{{ photo }}" stretch="aspectFill" colSpan="3" row="0" margin="0" />
-                <label text="{{ 'Breed: ' + breed }}" class="info" textWrap="true" row="1" colSpan="3" />  
-                <label text="{{ 'Age: ' + age }}"  class="info" textWrap="true" row="2" colSpan="3" />   
+                <label text="{{ 'Breed: ' + breed }}" class="info" textWrap="true" row="1" colSpan="3" class="quicksand"/>  
+                <label text="{{ 'Age: ' + age }}"  class="info" textWrap="true" row="2" colSpan="3" class="quicksand"/>   
            </grid-layout>
        </Card:CardView>
    </StackLayout>
