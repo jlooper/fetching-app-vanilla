@@ -11,13 +11,25 @@ function PetViewModel() {
         .then(function(response) {
             return response.json();
         }).then(function(data) {
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
             viewModel.name = data.petfinder.pet.name.$t;
             viewModel.size = data.petfinder.pet.size.$t;
             viewModel.age = data.petfinder.pet.age.$t;
             viewModel.sex = data.petfinder.pet.sex.$t;
             viewModel.photo = data.petfinder.pet.media.photos.photo[3].$t;
-            viewModel.breed = data.petfinder.pet.breeds.breed.$t;
+            if (Array.isArray(data.petfinder.pet.breeds.breed)) {
+                viewModel.breed = "";
+                var arrayLength = data.petfinder.pet.breeds.breed.length;
+                for (var i = 0; i < arrayLength; i++) {
+                         viewModel.breed += data.petfinder.pet.breeds.breed[i].$t
+                         if (i < arrayLength-1) {
+                             viewModel.breed += ', '
+                         }
+                    }
+            }
+            else {
+                viewModel.breed = "Unknown"
+            }
             viewModel.description = data.petfinder.pet.description.$t;
         });
     };
