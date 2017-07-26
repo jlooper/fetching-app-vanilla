@@ -6,12 +6,12 @@ function PetViewModel() {
     var viewModel = new Observable();
 
     viewModel.load = function() {
-        return fetch(config.apiUrl + 'pet.getRandom?&key='+ config.apiKey + '&animal=dog' + '&output=full' + '&format=json')
+        return fetch(config.apiUrl + 'pet.getRandom?&key='+ config.apiKey + '&animal=dog' + '&output=basic' + '&format=json')
         .then(handleErrors)
         .then(function(response) {
             return response.json();
         }).then(function(data) {
-            //console.log(JSON.stringify(data));
+            console.log(JSON.stringify(data));
             viewModel.name = data.petfinder.pet.name.$t;
             viewModel.size = data.petfinder.pet.size.$t;
             viewModel.age = data.petfinder.pet.age.$t;
@@ -28,9 +28,12 @@ function PetViewModel() {
                     }
             }
             else {
-                viewModel.breed = "Unknown"
+                viewModel.breed = "Unknown";
             }
-            viewModel.description = data.petfinder.pet.description.$t;
+            if(data.petfinder.pet.description.$t){
+                var shortDesc = data.petfinder.pet.description.$t.substring(0,100);
+                viewModel.description = shortDesc + '...';
+            }
         });
     };
 

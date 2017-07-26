@@ -6,15 +6,18 @@
             <Label text="{{ name }}" class="quicksandBold"></Label>
         </StackLayout>
     </ActionBar> 
+    <ScrollView>
     <StackLayout>     
       <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
-           <grid-layout rows="auto, auto, auto, auto" columns="auto, auto, *">
+           <grid-layout rows="auto, auto, auto, auto, auto" columns="auto, auto, *">
                 <image src="{{ photo }}" stretch="aspectFill" colSpan="3" row="0" margin="0" />
                 <label text="{{ 'Breed: ' + breed }}" class="info" textWrap="true" row="1" colSpan="3" class="quicksand"/>  
                 <label text="{{ 'Age: ' + age }}"  class="info" textWrap="true" row="2" colSpan="3" class="quicksand"/>
-                <label text="{{ 'Sex: ' + sex }}"  class="info" textWrap="true" row="3" colSpan="3" class="quicksand"/>   
+                <label text="{{ 'Sex: ' + sex }}"  class="info" textWrap="true" row="3" colSpan="3" class="quicksand"/>
+                <label text="{{ 'Description: ' + description }}"  class="info" textWrap="true" row="4" colSpan="3" class="quicksand"/>   
            </grid-layout>
        </Card:CardView>
        <Button text="Fetch Matches" tap="match" />
    </StackLayout>
+   </ScrollView>
 </Page>
