@@ -34,6 +34,9 @@ function PetViewModel() {
                 var shortDesc = data.petfinder.pet.description.$t.substring(0,100);
                 viewModel.description = shortDesc + '...';
             }
+            else {
+                viewModel.description = "Just a playful pupper, looking for fun!"
+            }
         });
     };
 
