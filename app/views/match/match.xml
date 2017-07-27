@@ -1,6 +1,8 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd">  
-    <Page.actionBar>
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" >    <Page.actionBar>
         <ActionBar title="Matches">
         </ActionBar>
     </Page.actionBar>
-</Page> 
+<StackLayout>
+    <Label text="{{ pet.name }}"></Label>
+</StackLayout>
+</Page>
