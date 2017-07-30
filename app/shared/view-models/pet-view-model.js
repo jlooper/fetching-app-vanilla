@@ -11,7 +11,7 @@ function PetViewModel() {
         .then(function(response) {
             return response.json();
         }).then(function(data) {
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
             viewModel.name = data.petfinder.pet.name.$t;
             viewModel.size = data.petfinder.pet.size.$t;
             viewModel.age = data.petfinder.pet.age.$t;

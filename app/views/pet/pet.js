@@ -5,8 +5,12 @@ var page;
 var pet = new PetViewModel();
 const topmost = require("ui/frame").topmost;
 
-exports.loaded = function(args) {
-    page = args.object;
+
+exports.navigated = function(args) {
+    const page = args.object;
+    page.bindingContext = new PetViewModel(page.navigationContext);
+
+    pet.empty()
     pet.load()
     .catch(function(error){
         return Promise.reject();

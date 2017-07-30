@@ -1,4 +1,4 @@
-<Page loaded="loaded" xmlns:Card="nativescript-cardview">
+<Page loaded="loaded" navigatingTo="navigated" xmlns:Card="nativescript-cardview">
     <ActionBar title="Fetching">
         <StackLayout orientation="horizontal"
             ios:horizontalAlignment="center"
