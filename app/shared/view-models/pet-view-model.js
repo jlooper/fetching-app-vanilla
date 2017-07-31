@@ -16,6 +16,7 @@ function PetViewModel() {
             viewModel.size = data.petfinder.pet.size.$t;
             viewModel.age = data.petfinder.pet.age.$t;
             viewModel.sex = data.petfinder.pet.sex.$t;
+            viewModel.zip = data.petfinder.pet.contact.zip.$t;
             viewModel.photo = data.petfinder.pet.media.photos.photo[3].$t;
             if (Array.isArray(data.petfinder.pet.breeds.breed)) {
                 viewModel.breed = "";
@@ -45,6 +46,7 @@ function PetViewModel() {
         viewModel.size = "";
         viewModel.age = "";
         viewModel.sex = "";
+        viewModel.zip = "";
         viewModel.photo = "";
         viewModel.breed = "";
         viewModel.description = "";

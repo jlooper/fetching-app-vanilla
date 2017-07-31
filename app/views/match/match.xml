@@ -1,6 +1,6 @@
 <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:Card="nativescript-cardview">    
     <Page.actionBar>
-        <ActionBar title="Matches">
+        <ActionBar title="{{ 'Matches in ' + pet.zip }}">
         </ActionBar>
     </Page.actionBar>
     <StackLayout>  
