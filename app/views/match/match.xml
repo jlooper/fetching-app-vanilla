@@ -1,9 +1,14 @@
-<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" >    
-<Page.actionBar>
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:Card="nativescript-cardview">    
+    <Page.actionBar>
         <ActionBar title="Matches">
         </ActionBar>
     </Page.actionBar>
-<StackLayout>
-    <Label text="{{ pet.name }}"></Label>
-</StackLayout>
+    <StackLayout>  
+         <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+            <grid-layout rows="auto" columns="150, *">
+                <image src="{{ pet.photo }}" col="0" row="0" class="clip-circle" />
+                <Label text="{{ pet.name }}" col="1" row="0"></Label>
+            </grid-layout>
+        </Card:CardView> 
+    </StackLayout>
 </Page>

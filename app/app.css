@@ -36,3 +36,8 @@ ActionBar {
     font-family: "Quicksand-Bold";
     font-size: 25;
 }
+.clip-circle {
+    clip-path: circle(100% at 50% 50%); 
+    margin: 5;
+    padding: 5;
+}
