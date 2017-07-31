@@ -1,4 +1,4 @@
-<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:Card="nativescript-cardview">    
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:Card="nativescript-cardview" xmlns:SwipeCard="nativescript-swipe-card">    
     <Page.actionBar>
         <ActionBar title="{{ 'Matches in ' + pet.zip }}">
         </ActionBar>
@@ -10,5 +10,14 @@
                 <Label text="{{ pet.name }}" col="1" row="0"></Label>
             </grid-layout>
         </Card:CardView> 
+        <SwipeCard:SwipeCard id="swipe" 
+                                  height="90%"
+                                  width="80%" 
+                                  items="{{ stackCards }}" 
+                                  cardHeight="60" 
+                                  cardWidth="70"
+                                  cardBorderRadius="20"
+                                  cardBorderWidth="2"
+                                  />
     </StackLayout>
 </Page>
