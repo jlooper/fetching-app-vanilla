@@ -5,6 +5,7 @@
             android:horizontalAlignment="left">
             <Label text="{{ name }}" class="quicksandBold"></Label>
         </StackLayout>
+        <ActionItem android.systemIcon="ic_menu_refresh" ios.systemIcon="13" ios.position="right" tap="onRefresh"/>
     </ActionBar> 
     <ScrollView>
     <StackLayout>     

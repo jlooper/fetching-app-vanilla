@@ -7,17 +7,15 @@ const topmost = require("ui/frame").topmost;
 
 
 exports.navigated = function(args) {
-    const page = args.object;
+    page = args.object;
     page.bindingContext = new PetViewModel(page.navigationContext);
 
-    pet.empty()
-    pet.load()
-    .catch(function(error){
-        return Promise.reject();
-    }).then(function(){
-        page.bindingContext = pet;
-    });
+    pickPet();
 };
+
+exports.onRefresh = function(){
+    pickPet();
+}
 
 exports.match = function(args) {
     topmost().navigate({
@@ -31,3 +29,13 @@ exports.match = function(args) {
         }
     });
 };
+
+function pickPet(){
+    pet.empty()
+    pet.load()
+    .catch(function(error){
+        return Promise.reject();
+    }).then(function(){
+        page.bindingContext = pet;
+    });
+}
