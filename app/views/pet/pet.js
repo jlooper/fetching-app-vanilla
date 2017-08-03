@@ -31,6 +31,7 @@ exports.match = function(args) {
 };
 
 function pickPet(){
+    
     pet.empty()
     pet.load()
     .catch(function(error){
