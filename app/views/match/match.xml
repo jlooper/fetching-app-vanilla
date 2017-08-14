@@ -1,19 +1,19 @@
-<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:Card="nativescript-cardview" xmlns:SwipeCard="nativescript-swipe-card">    
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:SwipeCard="nativescript-swipe-card">    
     <Page.actionBar>
         <ActionBar title="{{ 'Matches in ' + pet.zip }}">
         </ActionBar>
     </Page.actionBar>
     <StackLayout>  
-         <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+         <!-- <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
             <grid-layout rows="auto" columns="150, *">
                 <image src="{{ pet.photo }}" col="0" row="0" class="clip-circle" />
                 <Label text="{{ pet.name }}" col="1" row="0"></Label>
             </grid-layout>
-        </Card:CardView> 
+        </Card:CardView>  -->
         <SwipeCard:SwipeCard id="swipe" 
                                   height="90%"
                                   width="80%" 
-                                  items="{{ stackCards }}" 
+                                  items="{{ petArray }}" 
                                   cardHeight="60" 
                                   cardWidth="70"
                                   cardBorderRadius="20"
