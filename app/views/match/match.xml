@@ -10,7 +10,7 @@
                 <Label text="{{ pet.name }}" col="1" row="0"></Label>
             </grid-layout>
         </Card:CardView>  -->
-        <!--<SwipeCard:SwipeCard id="swipe" 
+        <SwipeCard:SwipeCard id="swipe" 
                                   height="90%"
                                   width="80%" 
                                   items="{{ pet.petCards }}" 
@@ -18,6 +18,6 @@
                                   cardWidth="70"
                                   cardBorderRadius="20"
                                   cardBorderWidth="2"
-                                  />-->
+                                  />
     </StackLayout>
 </Page>

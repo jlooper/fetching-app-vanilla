@@ -13,13 +13,14 @@ function MatchViewModel(petModel) {
         
         getMatches : function(zip) {
             
+            var petCards = [];
             
             return fetch(config.apiUrl + 'pet.find?&key='+ config.apiKey + '&location=' + zip + '&animal=dog&output=basic&count=10&format=json')
             .then(handleErrors)
             .then(function(response) {
                 return response.json();
             }).then(function(data) {
-            console.log(JSON.stringify(data))
+            //console.log(JSON.stringify(data))
             viewModel.name = data.petfinder.pet.name.$t;
             viewModel.size = data.petfinder.pet.size.$t;
             viewModel.age = data.petfinder.pet.age.$t;
@@ -35,7 +36,9 @@ function MatchViewModel(petModel) {
             image.width=100;
             stack.verticalAlignment = "middle";
             stack.addChild(image);
-            viewModel.petCards = [stack];
+            petCards = [stack];
+            console.log(petCards.length)
+            viewModel.petCards = petCards;
 
             if (Array.isArray(data.petfinder.pet.breeds.breed)) {
                 viewModel.breed = "";
