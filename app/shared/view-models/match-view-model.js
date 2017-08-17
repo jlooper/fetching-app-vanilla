@@ -1,7 +1,6 @@
 const observableModule = require("data/observable");
-const GridLayout = require("tns-core-modules/ui/layouts/grid-layout");
-const ItemSpec = require("tns-core-modules/ui/layouts/grid-layout");
-const Layout = require("tns-core-modules/ui/layouts/layout");
+var StackLayout = require("ui/layouts/stack-layout").StackLayout;
+var Label = require("tns-core-modules/ui/label").Label;
 var config = require("../../shared/config");
 
 
@@ -11,56 +10,48 @@ function MatchViewModel(petModel) {
         
         pet: petModel,
         
+        
         getMatches : function(zip) {
+
+            console.log("getting matches")
             
             var petCards = [];
+
+            //hard-coding isn't happy either
+            /*var stack1 = new StackLayout();
+            var label1 = new Label();
+            label1.text="one";
+            stack1.verticalAlignment = "middle";
+            stack1.addChild(label1);
+
+            var stack2 = new StackLayout();
+            var label2 = new Label();
+            label2.text="two";
+            stack2.verticalAlignment = "middle";
+            stack2.addChild(label2);
+
+            petCards = [stack1,stack2];
+            viewModel.petCards = petCards; */
             
             return fetch(config.apiUrl + 'pet.find?&key='+ config.apiKey + '&location=' + zip + '&animal=dog&output=basic&count=10&format=json')
-            .then(handleErrors)
-            .then(function(response) {
-                return response.json();
-            }).then(function(data) {
-            //console.log(JSON.stringify(data))
-            viewModel.name = data.petfinder.pet.name.$t;
-            viewModel.size = data.petfinder.pet.size.$t;
-            viewModel.age = data.petfinder.pet.age.$t;
-            viewModel.sex = data.petfinder.pet.sex.$t;
-            viewModel.zip = data.petfinder.pet.contact.zip.$t;
-            viewModel.photo = data.petfinder.pet.media.photos.photo[3].$t;
-
-            //build card
-            var stack = new StackLayout();
-            var image = new Image();
-            image.src=data.petfinder.pet.media.photos.photo[3].$t;
-            image.height=100;
-            image.width=100;
-            stack.verticalAlignment = "middle";
-            stack.addChild(image);
-            petCards = [stack];
-            console.log(petCards.length)
-            viewModel.petCards = petCards;
-
-            if (Array.isArray(data.petfinder.pet.breeds.breed)) {
-                viewModel.breed = "";
-                var arrayLength = data.petfinder.pet.breeds.breed.length;
-                for (var i = 0; i < arrayLength; i++) {
-                         viewModel.breed += data.petfinder.pet.breeds.breed[i].$t
-                         if (i < arrayLength-1) {
-                             viewModel.breed += ', '
-                         }
-                    }
-            }
-            else {
-                viewModel.breed = "Unknown";
-            }
-            if(data.petfinder.pet.description.$t){
-                var shortDesc = data.petfinder.pet.description.$t.substring(0,100);
-                viewModel.description = shortDesc + '...';
-            }
-            else {
-                viewModel.description = "Just a playful pupper, looking for fun!"
-            }
-        });
+                .then(handleErrors)
+                .then(function(response) {
+                    return response.json();
+                }).then(function(data) {
+                console.log(JSON.stringify(data))
+                
+                //build card - this needs to loop
+                var stack = new StackLayout();
+                var image = new Image();
+                image.src=data.petfinder.pet.media.photos.photo[3].$t;
+                image.height=100;
+                image.width=100;
+                stack.verticalAlignment = "middle";
+                stack.addChild(image);
+                petCards = [stack];
+                viewModel.petCards = petCards;            
+            });
+            
         }
     });
    
