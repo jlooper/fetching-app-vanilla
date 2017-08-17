@@ -10,23 +10,33 @@ function MatchViewModel(petModel) {
     const viewModel = observableModule.fromObject({
         
         pet: petModel,
-
         
-
         getMatches : function(zip) {
-
-            return fetch(config.apiUrl + 'pet.find?&key='+ config.apiKey + '&location=' + zip + '&animal=dog' + '&output=basic' + '&format=json')
+            
+            
+            return fetch(config.apiUrl + 'pet.find?&key='+ config.apiKey + '&location=' + zip + '&animal=dog&output=basic&count=10&format=json')
             .then(handleErrors)
             .then(function(response) {
                 return response.json();
             }).then(function(data) {
-                console.log(JSON.stringify(data));
+            console.log(JSON.stringify(data))
             viewModel.name = data.petfinder.pet.name.$t;
             viewModel.size = data.petfinder.pet.size.$t;
             viewModel.age = data.petfinder.pet.age.$t;
             viewModel.sex = data.petfinder.pet.sex.$t;
             viewModel.zip = data.petfinder.pet.contact.zip.$t;
             viewModel.photo = data.petfinder.pet.media.photos.photo[3].$t;
+
+            //build card
+            var stack = new StackLayout();
+            var image = new Image();
+            image.src=data.petfinder.pet.media.photos.photo[3].$t;
+            image.height=100;
+            image.width=100;
+            stack.verticalAlignment = "middle";
+            stack.addChild(image);
+            viewModel.petCards = [stack];
+
             if (Array.isArray(data.petfinder.pet.breeds.breed)) {
                 viewModel.breed = "";
                 var arrayLength = data.petfinder.pet.breeds.breed.length;

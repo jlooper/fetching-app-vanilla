@@ -9,7 +9,7 @@ exports.onNavigatingTo = function(args) {
     page.bindingContext = new MatchViewModel(page.navigationContext);
     const binding = page.bindingContext;
     binding.getMatches(binding.pet.zip);
-    let swipeCard = page.getViewById("swipe");
+    //let swipeCard = page.getViewById("swipe");
     // swipeCard.on("swipeEvent", (args:SwipeEvent) => {
     //     if (args.direction === 1) {
     //         console.log('Swiped to right');
