@@ -5,10 +5,10 @@
     </Page.actionBar>
     <StackLayout>  
          
-            <grid-layout class="innerCardStyle" rows="auto" columns="150, *">
+            <!--<grid-layout class="innerCardStyle" rows="auto" columns="150, *">
                 <image src="{{ pet.photo }}" col="0" row="0" class="clip-circle" />
                 <Label text="{{ pet.name }}" col="1" row="0"></Label>
-            </grid-layout>
+            </grid-layout>-->
         
         <SwipeCard:SwipeCard id="swipe" 
                                   height="90%"
