@@ -3,19 +3,20 @@ var StackLayout = require("ui/layouts/stack-layout").StackLayout;
 var Label = require("tns-core-modules/ui/label").Label;
 var config = require("../../shared/config");
 var ImageModule = require("tns-core-modules/ui/image");
-
+var Layout = require("tns-core-modules/ui/layouts/layout");
 
 function MatchViewModel(petModel) {
     const viewModel = observableModule.fromObject({
         
         pet: petModel,
         
+        petCards: Array<Layout>=[],
         
         getMatches : function(zip) {
 
             console.log("getting matches")
             
-            var petCards = [];
+            var cards = [];
             
             return fetch(config.apiUrl + 'pet.find?&key='+ config.apiKey + '&location=' + zip + '&animal=dog&output=basic&count=10&format=json')
                 .then(handleErrors)
@@ -29,15 +30,18 @@ function MatchViewModel(petModel) {
                 for (var i = 0; i < arrayLength; i++) {
                     var stack = new StackLayout();
                     var image = new ImageModule.Image();
-                    image.src=data.petfinder.pets.pet[i].media.photos.photo[3].$t;
+                    image.src=data.petfinder.pets.pet[i].media.photos.photo[1].$t;
+                    var label = new Label();
+                    label.text = "hey";
                     console.log(image.src)
                     image.height=100;
                     image.width=100;
                     stack.verticalAlignment = "middle";
                     stack.addChild(image);
-                    petCards.push(stack);
+                    stack.addChild(label);
+                    cards.push(stack);
                 }
-                viewModel.petCards = petCards;            
+                viewModel.petCards = cards;            
             });
             
         }

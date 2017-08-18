@@ -13,7 +13,7 @@
         <SwipeCard:SwipeCard id="swipe" 
                                   height="90%"
                                   width="80%" 
-                                  items="{{ match.petCards }}" 
+                                  items="{{ petCards }}" 
                                   cardHeight="60" 
                                   cardWidth="70"
                                   cardBorderRadius="20"
