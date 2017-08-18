@@ -17,7 +17,7 @@
                                   cardHeight="60" 
                                   cardWidth="70"
                                   cardBorderRadius="20"
-                                  cardBorderWidth="2"
+                                  cardBorderWidth="2"                              
                                   />
     </StackLayout>
 </Page>

@@ -3,7 +3,7 @@ var SwipeEvent = require("nativescript-swipe-card");
 
 var MatchViewModel = require("../../shared/view-models/match-view-model");
 var match = new MatchViewModel();
-var petCards;
+var cards; 
 
 exports.onNavigatingTo = function(args) {
   const page = args.object;
@@ -23,11 +23,9 @@ exports.onNavigatingTo = function(args) {
 };
 
 getMatches = function(zip) {
-  //   match.getMatches(zip);
-  // get matches returns a fetch promise
-  match.getMatches(zip).then(
+    match.getMatches(zip).then(
     function() {
-      console.log(match.petCards);
+      console.log(match.petCards)
     },
     function(err) {
       console.log("getMatches error", err);

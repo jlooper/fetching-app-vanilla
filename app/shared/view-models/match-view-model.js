@@ -31,17 +31,17 @@ function MatchViewModel(petModel) {
                     var stack = new StackLayout();
                     var image = new ImageModule.Image();
                     image.src=data.petfinder.pets.pet[i].media.photos.photo[1].$t;
-                    var label = new Label();
-                    label.text = "hey";
                     console.log(image.src)
                     image.height=100;
                     image.width=100;
                     stack.verticalAlignment = "middle";
                     stack.addChild(image);
-                    stack.addChild(label);
                     cards.push(stack);
+                    
                 }
-                viewModel.petCards = cards;            
+                //viewModel.petCards = cards; 
+                //petCards: Array<Layout>=cards
+                viewModel.set('petCards',cards)
             });
             
         }
