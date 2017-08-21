@@ -6,15 +6,18 @@ var pet = new PetViewModel();
 const topmost = require("ui/frame").topmost;
 
 exports.navigated = function(args) {
-  page = args.object;
-  page.bindingContext = new PetViewModel(page.navigationContext);
+    page = args.object;
+    pickPet();
 
-  pickPet();
 };
 
 exports.onRefresh = function() {
   pickPet();
 };
+
+exports.onRefresh = function(){
+    pickPet();
+}
 
 exports.match = function(args) {
   topmost().navigate({
@@ -41,4 +44,23 @@ function pickPet() {
     .then(function() {
       page.bindingContext = pet;
     });
+};
+
+function pickPet(){
+    pet.empty()
+    pet.load()
+    .catch(function(error){
+        return Promise.reject();
+    }).then(function(){
+        console.log(pet);
+        page.bindingContext = {
+            "name" : pet.name,
+            "photo" : pet.photo,
+            "breed" : pet.breed,
+            "age" : pet.age,
+            "sex" : pet.sex,
+            "description" : pet.description,
+        }
+    });
 }
+
