@@ -28,6 +28,12 @@ ActionBar {
     background-color: #fafafa;
     color: #000;
 }
+.innerCardStyle {
+    background-color: #fafafa;
+    color: #000;
+    margin: 10;
+    border-radius: 2;
+}
 .quicksand {
     font-family: "Quicksand-Regular";
     font-size: 20;
