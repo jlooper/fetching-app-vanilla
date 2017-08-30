@@ -7,9 +7,9 @@
         </StackLayout>
         <ActionItem android.systemIcon="ic_menu_refresh" ios.systemIcon="13" ios.position="right" tap="onRefresh"/>
     </ActionBar> 
-    <ScrollView>
-    <StackLayout>     
-      <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+    <ScrollView height="100%">
+    <StackLayout height="100%" verticalAlignment="top">     
+      <Card:CardView class="cardStyle" height="85%" margin="10" elevation="40" radius="5">
            <grid-layout rows="225, auto, auto, auto, auto" columns="auto, auto, *">
                 <image src="{{ photo }}" stretch="aspectFill" colSpan="3" row="0" margin="0" />
                 <label text="{{ 'Breed: ' + breed }}" class="info" textWrap="true" row="1" colSpan="3" class="quicksand"/>  

@@ -31,7 +31,9 @@ ActionBar {
 .innerCardStyle {
     background-color: #fafafa;
     color: #000;
-    margin: 10;
+    width: 90%;
+    margin-top:10;
+    padding-left: 10;
     border-radius: 2;
 }
 .quicksand {
@@ -42,8 +44,16 @@ ActionBar {
     font-family: "Quicksand-Bold";
     font-size: 25;
 }
+.quicksandBoldLarge {
+    font-family: "Quicksand-Bold";
+    font-size: 40;
+}
 .clip-circle {
     clip-path: circle(100% at 50% 50%); 
-    margin: 5;
-    padding: 5;
+    margin: 0;
+    padding: 0;
+}
+
+.cardStack {
+    margin-top:40;
 }

@@ -23,24 +23,31 @@ function MatchViewModel(petModel) {
                 .then(function(response) {
                     return response.json();
                 }).then(function(data) {
-                //console.log(JSON.stringify(data.petfinder.pets))
                 //build card - this needs to loop through data.petfinder.pets
                 var arrayLength = data.petfinder.pets.pet.length;
                 console.log(arrayLength)
                 for (var i = 0; i < arrayLength; i++) {
                     var stack = new StackLayout();
                     var image = new ImageModule.Image();
-                    image.src=data.petfinder.pets.pet[i].media.photos.photo[1].$t;
-                    console.log(image.src)
-                    image.height=100;
-                    image.width=100;
-                    stack.verticalAlignment = "middle";
+                    var nameLabel = new Label();
+                    var descriptionLabel = new Label();
+                    image.src=data.petfinder.pets.pet[i].media.photos.photo[2].$t;
+                    nameLabel.text = data.petfinder.pets.pet[i].name.$t;
+                    nameLabel.class = "quicksandBoldLarge";
+                    nameLabel.horizontalAlignment="center";
+                    descriptionLabel.text = data.petfinder.pets.pet[i].description.$t;
+                    descriptionLabel.textWrap = true;
+                    descriptionLabel.class="quicksand";
+                    descriptionLabel.alignment="top";
+                    descriptionLabel.horizontalAlignment="center";
+                    image.width = 300;
+                    stack.addChild(nameLabel);
                     stack.addChild(image);
+                    //stack.addChild(descriptionLabel);
+                    
                     cards.push(stack);
                     
                 }
-                //viewModel.petCards = cards; 
-                //petCards: Array<Layout>=cards
                 viewModel.set('petCards',cards)
             });
             

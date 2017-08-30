@@ -32,7 +32,7 @@ function PetViewModel() {
                 viewModel.breed = "Unknown";
             }
             if(data.petfinder.pet.description.$t){
-                var shortDesc = data.petfinder.pet.description.$t.substring(0,100);
+                var shortDesc = data.petfinder.pet.description.$t.substring(0,175);
                 viewModel.description = shortDesc + '...';
             }
             else {
