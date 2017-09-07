@@ -42,6 +42,7 @@ function MatchViewModel(petModel) {
                     descriptionLabel.horizontalAlignment="center";
                     image.width = 300;
                     stack.addChild(nameLabel);
+                    stack.class = "cardStyle";
                     stack.addChild(image);
                     //stack.addChild(descriptionLabel);
                     

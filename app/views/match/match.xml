@@ -10,12 +10,13 @@
                 <Label class="quicksandBold" text="{{ pet.name }}"></Label>
             </StackLayout>
         
-        <SwipeCard:SwipeCard class="cardStack" id="swipe" 
-                height="65%"
-                width="90%" 
+        <SwipeCard:SwipeCard id="swipe" 
+                height="75%"
+                width="90%"
+                cardHeight="80" 
                 items="{{ petCards }}" 
                 isRandomColor="2"
-                cardBorderRadius="5"
+                cardBorderRadius="2"
                 cardBorderWidth="0"                              
             />
     </StackLayout>
